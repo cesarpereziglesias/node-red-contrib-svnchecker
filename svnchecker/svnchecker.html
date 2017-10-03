@@ -1,0 +1,49 @@
+<script type="text/javascript">
+    RED.nodes.registerType('svnchecker',{
+        category: 'input',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+            urlrepo: {value:""},
+            username: {value:""},
+            password: {value:""},
+            refresh: {value:60}
+        },
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return this.name || "svnchecker";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="svnchecker">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-urlrepo"><i class="icon-tag"></i> URL</label>
+        <input type="text" id="node-input-urlrepo" placeholder="URL to Repository">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-username"><i class="icon-tag"></i> Username</label>
+        <input type="text" id="node-input-username" placeholder="Username">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-password"><i class="icon-tag"></i> Password</label>
+        <input type="password" id="node-input-password" placeholder="Password">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-refresh"><i class="icon-tag"></i> Refresh</label>
+        <input type="number" id="node-input-refresh" placeholder="Refresh time (in minutes)">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="svnchecker">
+    <p>Check periodically changes in your SVN repository</p>
+</script>
