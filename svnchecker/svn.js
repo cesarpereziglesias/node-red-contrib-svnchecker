@@ -31,7 +31,10 @@
     var __mapLogEntryXMLToJson = function(logEntry) {
         return {
             date: new Date(logEntry["date"][0]),
-            message: logEntry["msg"][0]
+            message: logEntry["msg"][0],
+            paths: logEntry["paths"][0]["path"].map(function(item) {
+                return item["_"];
+            })
         };
     };
 
@@ -65,6 +68,7 @@
                 _options = Object.assign({}, options);
 
             _options["xml"] = "";
+            _options["verbose"] = ""
             _options["revision"] = util.format("{%s}:{2999-12-31}", date.toISOString())
 
             return new Promise(function (resolve, reject) {
